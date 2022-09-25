@@ -41,3 +41,10 @@ Step 6.	Click on 'Back to overwiev' button.	- Expected:	User is redirected to ht
 Step 7.	Tick the last one post.	- Expected:	The last post is selected.
 Step 8.	Click on 'Delete selected entries' button.	- Expected:	Alert 'Do you really want to delete the selected entries?' is shown.
 Step 9.	Click 'OK' on the alert.	- Expected:	User remains on https://my.monkkee.com/#/entries. The last post with text 'Hello, beautiful world!' is removed and is absent.
+
+TC-6.	User searches for existing entry.	
+1.	Follow the link: https://my.monkkee.com/#/	- Expected:	Login page is opened. Login form is visible. 'User' and 'Password' fields, 'Login' button are present.
+2.	Fill in the following fields: 'User' = cab.look.cab@gmail.com; 'Password' = Password123.	- Expected:	Listed fields are filled in with test data.
+3.	Click on 'Login' button.	- Expected:	User is redirected to https://my.monkkee.com/#/entries. 'Search' field is present on the right side of the window.
+4.	Fill in 'Search' field with 'Welcome' word.	- Expected:	'Welcome' word is input.
+5.	Click on 'Search' button.	- Expected:Post with text 'Welcome to monkkee!' is present.
