@@ -9,8 +9,7 @@ Autotest framework for a private and free online diary: https://www.monkkee.com/
 3. Fill in the following fields: 'Email' = cab.look.cab@gmail.com; 'Password' = 'Password confirmation' = Password123; 'Password hint' = Password1234. Tick all check-boxes. - ***Expected:***	Listed fields are filled in with test data. Listed check-boxed are ticked.
 4. Click on 'OK' button.	- ***Expected:*** User is registered. The following text message is present: 'User registered
 You will now receive an email with a confirmation link. Please follow the instructions in the email. Please also check your Spam folder!'.
-5.	Find the email with a confirmation link in your post client and click on 'Confirm' link.	- ***Expected:*** Registration confirmed successfully: User is redirected to monkkee website. The following text message is present: 'Now you can start. Log in here:
-https://my.monkkee.com'.
+
 
 ## :yellow_circle: *TC-2.	Existing User can log in into the system.*
 1. Follow the link: [Login Page](https://my.monkkee.com/#/)	***Expected:*** Login page is opened. Login form is visible. 'User' and 'Password' fields, 'Login' button are present.
