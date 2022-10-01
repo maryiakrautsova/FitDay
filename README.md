@@ -44,10 +44,13 @@ Autotest framework for a private and free online diary: https://www.monkkee.com/
 1.	Follow the link: [Login Page](https://my.monkkee.com/#/)	- ***Expected:***	Login page is opened. Login form is visible. 'User' and 'Password' fields, 'Login' button are present.
 2.	Fill in the following fields: 'User' = cab.look.cab@gmail.com; 'Password' = Password123.	- ***Expected:***	Listed fields are filled in with test data.
 3.	Click on 'Login' button.	- ***Expected:***	User is redirected to [Entries Page](https://my.monkkee.com/#/entries). 'Search' field is present on the right side of the window.
-4.	Fill in 'Search' field with 'Welcome' word.	- ***Expected:***	'Welcome' word is input.
-5.	Click on 'Search' button.	- ***Expected:*** Post with text 'Welcome to monkkee!' is present.
+4.	Click on 'Create an entry' button.	- ***Expected:***	A modal window with empty text area for input is present.
+5.	Input the following text 'Hello, beautiful world!'.	- ***Expected:***	Text is input. Button with emoji = diskette is marked as 'saved' and is inactive.
+6.	Click on 'Back to overwiev' button.	- ***Expected:***	User is redirected to [Entries Page](https://my.monkkee.com/#/entries). Post with text message = 'Hello, beautiful world!' is present and is the last one.
+5.	Fill in 'Search' field with 'Welcome' word.	- ***Expected:***	'Welcome' word is input.
+6.	Click on 'Search' button.	- ***Expected:*** Post with text 'Welcome to monkkee!' is present.
 
-## :yellow_circle: *TC-7.	Existing enties can be filtered by the date.*	
+## :yellow_circle: *TC-7.	Existing entries can be filtered by the date.*	
 1.	Follow the link: [Login Page](https://my.monkkee.com/#/) - ***Expected:***	Login page is opened. Login form is visible. 'User' and 'Password' fields, 'Login' button are present.
 2.	Fill in the following fields: 'User' = cab.look.cab@gmail.com; 'Password' = Password123. - ***Expected:*** Listed fields are filled in with test data.
 3.	Click on 'Login' button. - ***Expected:***	User is redirected to [Entries Page](https://my.monkkee.com/#/entries). Active 'Create an entry' button is present on the toolbar.
