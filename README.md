@@ -81,9 +81,7 @@ Autotest framework for a private and free online diary: https://www.monkkee.com/
 5.	Input the following text 'Jobs fill your pockets, adventures fill your soul.'. - ***Expected:***	Text is input. Button with emoji = diskette is marked as 'saved' and is inactive.
 6.	Click on 'Image' button. - ***Expected:***	'Image Properties' modal window is opened. 'Choose File' button is present.
 7.	Click on 'Choose File' button. Choose any image (.jpeg format).	 - ***Expected:*** URL with the path to the selected image is present in URL field.
-8.	Click on 'OK' button (green highlighted). - ***Expected:***	Text is input. Button with emoji = diskette is marked as 'saved' and is inactive.
-9.	Click on 'Back to overwiev' button. - ***Expected:***	User is redirected to [Entries Page](https://my.monkkee.com/#/entries). Post with text message = 'Jobs fill your pockets, adventures fill your soul.' is present and is the last one.
-10.	Click on entry which contains text 'Jobs fill your pockets, adventures fill your soul.'. - ***Expected:***	Selected in step 7 image is displayed.
+8.	Click on 'OK' button (green highlighted). - ***Expected:***	Text is input. Button with emoji = diskette is marked as 'saved' and is inactive. Selected in step 7 image is displayed.
 
 ## :yellow_circle: *TC-10.	User can format existing entry.*
 1.	Follow the link: [Login Page](https://my.monkkee.com/#/) - ***Expected:***	Login page is opened. Login form is visible. 'User' and 'Password' fields, 'Login' button are present.
