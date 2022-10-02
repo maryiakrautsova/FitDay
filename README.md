@@ -72,7 +72,6 @@ Autotest framework for a private and free online diary: https://www.monkkee.com/
 4.	Click on entry which contains text 'Welcome to monkkee!'. - ***Expected:*** Navigate to 'Tags' area.	'Create new tag' field is empty and present.
 5.	Fill in 'Create new tag' field with: 'important'. - ***Expected:***	'Create new tag' field is filled in with test data ('important').
 6.	Click on 'OK' button next to 'Create new tag' field. - ***Expected:***	There is 'important' tag in 'Assigned tags' area.
-7.	Click on 'Back to overwiev' button. - ***Expected:***	Ther's Tags: 'important' in entry which contains text 'Welcome to monkkee!'.
 
 ## :yellow_circle: *TC-9.	Image can be inserted into the entry.*
 1.	Follow the link: [Login Page](https://my.monkkee.com/#/) - ***Expected:***	Login page is opened. Login form is visible. 'User' and 'Password' fields, 'Login' button are present.
