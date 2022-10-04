@@ -92,4 +92,4 @@ Autotest framework for a private and free online diary: https://www.monkkee.com/
 6.	Click on 'Back to overwiev' button. - ***Expected:***	User is redirected to [Entries Page](https://my.monkkee.com/#/entries). Post with text message = 'In the cookie of life, friends are the chocolate chips.' is present and is the last one.
 7.	Click on entry which contains text 'In the cookie of life, friends are the chocolate chips.'. - ***Expected:***	Entry which contains text 'In the cookie of life, friends are the chocolate chips.' only is displayed.
 8.	Click on the text on entry. - ***Expected:***	Toolbar manu for formatting is displayed.
-9.	Select the whole text message. Click on 'Bold' button. Click on 'Exit edit mode'. - ***Expected:***  	Text Entry is in bold.
+9.	Select the whole text message. Click on 'Bold' button. - ***Expected:***  	Text Entry is in bold.
