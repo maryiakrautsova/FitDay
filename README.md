@@ -89,18 +89,19 @@ Test cases can be found also [here](https://docs.google.com/spreadsheets/d/12-o_
 3.	Click on 'Login' button. - ***Expected:***	User is redirected to [Entries Page](https://my.monkkee.com/#/entries). Active 'Create an entry' button is present on the toolbar.
 4. In case a modal window is appeared - close it by clicking 'Cancel'. - ***Expected:*** User is redirected to https://my.monkkee.com/#/entries. Active 'Create an entry' button is present on the toolbar.
 5.	Click on 'Create an entry' button. - ***Expected:***	A modal window with empty text area for input is present.
-5.	Input the following text 'Jobs fill your pockets, adventures fill your soul.'. - ***Expected:***	Text is input. Button with emoji = diskette is marked as 'saved' and is inactive.
-6.	Click on 'Image' button. - ***Expected:***	'Image Properties' modal window is opened. 'Choose File' button is present.
-7.	Click on 'Choose File' button. Choose any image (.jpeg format).	 - ***Expected:*** URL with the path to the selected image is present in URL field.
-8.	Click on 'OK' button (green highlighted). - ***Expected:***	Text is input. Button with emoji = diskette is marked as 'saved' and is inactive. Selected in step 7 image is displayed.
+6.	Input any text (example: 'Jobs fill your pockets, adventures fill your soul.'). - ***Expected:***	Text is input. Button with emoji = diskette is marked as 'saved' and is inactive.
+7.	Click on 'Image' button. - ***Expected:***	'Image Properties' modal window is opened. 'Choose File' button is present.
+8.	Click on 'Choose File' button. Choose any image (.jpeg format).	 - ***Expected:*** URL with the path to the selected image is present in URL field.
+9.	Click on 'OK' button (green highlighted). - ***Expected:***	Text is input. Button with emoji = diskette is marked as 'saved' and is inactive. Selected in step 8 image is displayed.
 
 ## :yellow_circle: *TC-10.	User can format existing entry.*
 1.	Follow the link: [Login Page](https://my.monkkee.com/#/) - ***Expected:***	Login page is opened. Login form is visible. 'User' and 'Password' fields, 'Login' button are present.
 2.	Fill in the following fields: 'User' = cab.look.cab@gmail.com; 'Password' = Password123. - ***Expected:***	Listed fields are filled in with test data.
 3.	Click on 'Login' button. - ***Expected:***	User is redirected to [Entries Page](https://my.monkkee.com/#/entries). Active 'Create an entry' button is present on the toolbar.
-4.	Click on 'Create an entry' button. - ***Expected:***	A modal window with empty text area for input is present.
-5.	Input the following text 'In the cookie of life, friends are the chocolate chips.'. - ***Expected:***	Text is input. Button with emoji = diskette is marked as 'saved' and is inactive.
-6.	Click on 'Back to overwiev' button. - ***Expected:***	User is redirected to [Entries Page](https://my.monkkee.com/#/entries). Post with text message = 'In the cookie of life, friends are the chocolate chips.' is present and is the last one.
-7.	Click on entry which contains text 'In the cookie of life, friends are the chocolate chips.'. - ***Expected:***	Entry which contains text 'In the cookie of life, friends are the chocolate chips.' only is displayed.
-8.	Click on the text on entry. - ***Expected:***	Toolbar manu for formatting is displayed.
-9.	Select the whole text message. Click on 'Bold' button. - ***Expected:***  	Text Entry is in bold.
+4. In case a modal window is appeared - close it by clicking 'Cancel'. - ***Expected:*** User is redirected to https://my.monkkee.com/#/entries. Active 'Create an entry' button is present on the toolbar.
+5.	Click on 'Create an entry' button. - ***Expected:***	A modal window with empty text area for input is present.
+6.	Input any text (example: 'In the cookie of life, friends are the chocolate chips.'). - ***Expected:***	Text is input. Button with emoji = diskette is marked as 'saved' and is inactive.
+7.	Click on 'Back to overwiev' button. - ***Expected:***	User is redirected to [Entries Page](https://my.monkkee.com/#/entries). Post with text message = 'In the cookie of life, friends are the chocolate chips.' is present and is the last one.
+8.	Click on entry which contains text input in step 6. - ***Expected:***	Entry which contains text input in step 6 only is displayed.
+9.	Click on the text of entry. - ***Expected:***	Toolbar manu for formatting is displayed.
+10.	Select the whole text message. Click on 'Bold' button. - ***Expected:***  Text Entry is in bold.
