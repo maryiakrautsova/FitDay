@@ -32,8 +32,7 @@ Test cases can be found also [here](https://docs.google.com/spreadsheets/d/12-o_
 3. Click on 'Login' button. - ***Expected:***	In case no modal window is appeared - User is redirected to [Entries Page](https://my.monkkee.com/#/entries). Active 'Create an entry' button is present on the toolbar.
 4. In case a modal window is appeared - close it by clicking 'Cancel'. - ***Expected:*** User is redirected to https://my.monkkee.com/#/entries. Active 'Create an entry' button is present on the toolbar.
 5.	Click on 'Create an entry' button. - ***Expected:*** A modal window with empty text area for input is present.
-6.	Input random text (example: 'Hello, beautiful world!'.).	- ***Expected:*** Text is input. Button with emoji = diskette is marked as 'saved' and is inactive.
-7.	Click on 'Back to overwiev' button.	- ***Expected:*** User is redirected to [Entries Page](https://my.monkkee.com/#/entries). Post with input in step 5 text message ('Hello, beautiful world!') is present and is the last one.
+6.	Input random text (example: 'Hello, beautiful world!'.).	- ***Expected:*** Text is input. Button with emoji = diskette is marked as 'saved' and is inactive. Input text after creation of new entry equals to generated text input.
 
 ## :yellow_circle: *TC-5.	User can remove existing entry.*	
 1.	Follow the link: [Login Page](https://my.monkkee.com/#/) - ***Expected:***	Login page is opened. Login form is visible. 'User' and 'Password' fields, 'Login' button are present.
