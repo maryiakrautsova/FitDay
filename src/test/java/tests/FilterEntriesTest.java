@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import pages.EntriesPage;
 
 public class FilterEntriesTest extends BaseTest {
-    @Test
+    @Test(priority = 3, description = "this test validates entries filtering test")
     public void existingEntriesCanBeFilteredByDateTest() {
         LoginSteps loginSteps = new LoginSteps();
         loginSteps.userLogin(driverManager);

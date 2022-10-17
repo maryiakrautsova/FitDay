@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import pages.EntriesPage;
 
 public class TagsManagementTest extends BaseTest {
-    @Test
+    @Test(priority = 3, description = "this test validates a tag can be added to an entry test")
     public void tagCreationAndAssigmentTest() {
         LoginSteps loginSteps = new LoginSteps();
         loginSteps.userLogin(driverManager);

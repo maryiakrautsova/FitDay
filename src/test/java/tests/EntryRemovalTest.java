@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import pages.EntriesPage;
 
 public class EntryRemovalTest extends BaseTest {
-    @Test
+    @Test(priority = 1, description = "this test validates an existing entry removal test")
     public void existingEntryCanBeRemovedTest() {
         LoginSteps loginSteps = new LoginSteps();
         loginSteps.userLogin(driverManager);

@@ -7,7 +7,7 @@ import pages.EntriesPage;
 
 public class UserLogoutTest extends BaseTest {
 
-    @Test
+    @Test(priority = 1, description = "this test validates user can log out of the system test")
     public void existingUserLogoutTest() {
         LoginSteps loginSteps = new LoginSteps();
         loginSteps.userLogin(driverManager);

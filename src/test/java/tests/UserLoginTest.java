@@ -6,7 +6,7 @@ import pages.EntriesPage;
 import pages.LoginPage;
 
 public class UserLoginTest extends BaseTest {
-    @Test
+    @Test(priority = 1, description = "this test validates user can log in into the system test")
     public void existingUserLoginTest() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.openLoginPage();

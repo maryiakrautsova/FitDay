@@ -4,9 +4,12 @@ import frequentlyusedmethods.LoginSteps;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.EntriesPage;
+import utils.RetryAnalyzer;
 
 public class EntryCreationTest extends BaseTest {
-    @Test
+    @Test(priority = 1,
+            description = "this test validates a new entry creation test",
+            retryAnalyzer = RetryAnalyzer.class)
     public void newEntryCreationTest() {
         LoginSteps loginSteps = new LoginSteps();
         loginSteps.userLogin(driverManager);

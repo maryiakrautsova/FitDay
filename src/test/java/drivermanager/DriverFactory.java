@@ -13,9 +13,6 @@ public class DriverFactory {
             case OPERA:
                 driverManager = new OperaDriverManager();
                 break;
-            case SAFARI:
-                driverManager = new SafariDriverManager();
-                break;
             default:
                 throw new IllegalStateException("Unexpected driver type " + driverType);
         }

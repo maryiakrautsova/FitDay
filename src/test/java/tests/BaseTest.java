@@ -15,7 +15,7 @@ public class BaseTest {
     @BeforeMethod
     public void setUp() {
         DriverFactory driverFactory = new DriverFactory();
-        driverManager = driverFactory.getManager(DriverType.SAFARI);
+        driverManager = driverFactory.getManager(DriverType.OPERA);
         driverManager.createDriver();
         driverManager.setTimeout();
         driverManager.startMaximize();

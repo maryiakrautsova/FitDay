@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import pages.EntriesPage;
 
 public class EntryFormattingTest extends BaseTest {
-    @Test
+    @Test(priority = 2, description = "this test validates an entry text formatting test")
     public void fontFormattingTest() {
         LoginSteps loginSteps = new LoginSteps();
         loginSteps.userLogin(driverManager);

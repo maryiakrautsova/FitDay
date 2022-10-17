@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import pages.EntriesPage;
 
 public class SearchForEntryTest extends BaseTest {
-    @Test
+    @Test(priority = 3, description = "this test validates an entry is searchable test")
     public void existingEntryIsSearchable() {
         LoginSteps loginSteps = new LoginSteps();
         loginSteps.userLogin(driverManager);

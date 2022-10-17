@@ -4,9 +4,12 @@ import frequentlyusedmethods.LoginSteps;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.EntriesPage;
+import utils.RetryAnalyzer;
 
 public class ImageTest extends BaseTest {
-    @Test
+    @Test(priority = 3,
+            description = "this test validates adding an image to existing entry test",
+            retryAnalyzer = RetryAnalyzer.class)
     public void insertImageToExistingPostTest() {
         LoginSteps loginSteps = new LoginSteps();
         loginSteps.userLogin(driverManager);
