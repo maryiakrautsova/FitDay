@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="User Registration/Login/Logout Tests.">
+    <test name="User Basic Actions.">
+        <classes>
+            <class name="tests.UserRegistrationTest"></class>
+            <class name="tests.UserLoginTest"></class>
+            <class name="tests.UserLogoutTest"></class>
+        </classes>
+    </test> <!-- Test -->
+</suite>
