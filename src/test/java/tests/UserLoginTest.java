@@ -1,6 +1,7 @@
 package tests;
 
 import frequentlyusedmethods.LoginSteps;
+import io.qameta.allure.Attachment;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
@@ -12,6 +13,7 @@ public class UserLoginTest extends BaseTest {
     private static final Logger LOGGER = LogManager.getLogger(UserLoginTest.class.getName());
 
     @Test(priority = 1, description = "this test validates user can log in into the system test")
+    @Attachment
     public void existingUserLoginTest() {
         LoginPage loginPage = new LoginPage(driver);
         LOGGER.info(String.format("Page %s is initialized.", LoginSteps.class.getName()));

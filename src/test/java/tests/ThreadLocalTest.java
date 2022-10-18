@@ -6,7 +6,10 @@ import drivermanager.DriverType;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
+import utils.TestListeners;
 
+@Listeners(TestListeners.class)
 public class ThreadLocalTest {
     protected static ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<>();
     DriverManager driverManager;

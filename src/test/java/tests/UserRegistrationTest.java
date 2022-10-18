@@ -1,6 +1,7 @@
 package tests;
 
 import frequentlyusedmethods.LoginSteps;
+import io.qameta.allure.Attachment;
 import models.NewAccountRegistrationModel;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -18,6 +19,7 @@ public class UserRegistrationTest extends BaseTest {
     @Test(priority = 1,
             description = "this test validates a new user can register in the system test",
             retryAnalyzer = RetryAnalyzer.class)
+    @Attachment(value = "screenshot", type = "image/png")
     public void newAccountCreationTest() {
         LoginPage loginPage = new LoginPage(driver);
         LOGGER.info(String.format("Page %s is initialized.", LoginSteps.class.getName()));

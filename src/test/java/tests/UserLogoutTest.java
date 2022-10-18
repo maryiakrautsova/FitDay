@@ -1,6 +1,7 @@
 package tests;
 
 import frequentlyusedmethods.LoginSteps;
+import io.qameta.allure.Attachment;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
@@ -12,6 +13,7 @@ public class UserLogoutTest extends BaseTest {
     private static final Logger LOGGER = LogManager.getLogger(UserLogoutTest.class.getName());
 
     @Test(priority = 1, description = "this test validates user can log out of the system test")
+    @Attachment(value = "screenshot", type = "image/png")
     public void existingUserLogoutTest() {
         LoginSteps loginSteps = new LoginSteps();
         LOGGER.info(String.format("Page %s is initialized.", LoginSteps.class.getName()));
