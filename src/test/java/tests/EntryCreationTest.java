@@ -1,6 +1,7 @@
 package tests;
 
 import frequentlyusedmethods.LoginSteps;
+import io.qameta.allure.Attachment;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
@@ -15,6 +16,7 @@ public class EntryCreationTest extends BaseTest {
     @Test(priority = 1,
             description = "this test validates a new entry creation test",
             retryAnalyzer = RetryAnalyzer.class)
+    @Attachment(value = "screenshot", type = "image/png")
     public void newEntryCreationTest() {
         LoginSteps loginSteps = new LoginSteps();
         LOGGER.info(String.format("Page %s is initialized.", LoginSteps.class.getName()));

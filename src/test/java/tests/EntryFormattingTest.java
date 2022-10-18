@@ -1,6 +1,7 @@
 package tests;
 
 import frequentlyusedmethods.LoginSteps;
+import io.qameta.allure.Attachment;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
@@ -11,6 +12,7 @@ public class EntryFormattingTest extends BaseTest {
     private static final Logger LOGGER = LogManager.getLogger(EntryFormattingTest.class.getName());
 
     @Test(priority = 2, description = "this test validates an entry text formatting test")
+    @Attachment(value = "screenshot", type = "image/png")
     public void fontFormattingTest() {
         LoginSteps loginSteps = new LoginSteps();
         LOGGER.info(String.format("Page %s is initialized.", LoginSteps.class.getName()));
