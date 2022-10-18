@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Regression Tests">
+<suite name="Regression Tests.">
     <test name="New User Basic Actions." thread-count="2" parallel="classes">
         <classes>
             <class name="tests.UserRegistrationTest"></class>
@@ -10,7 +10,6 @@
         <classes>
             <class name="tests.ImageTest"></class>
             <class name="tests.SearchForEntryTest"></class>
-            <class name="tests.TagsManagementTest"></class>
         </classes>
     </test> <!-- Test -->
 </suite>
