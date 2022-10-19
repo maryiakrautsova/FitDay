@@ -12,7 +12,7 @@ public class OperaDriverManager extends DriverManager {
         WebDriverManager.operadriver().setup();
         driver = new OperaDriver();
         OperaOptions options = new OperaOptions();
-        options.addArguments("--disable-notifications");
+        options.addArguments("--headless", "--disable-notifications");
 
         options.setExperimentalOption("excludeSwitches",
                 Arrays.asList("disable-popup-blocking"));
