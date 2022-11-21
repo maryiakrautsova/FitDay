@@ -1,7 +1,6 @@
 package tests;
 
 import frequentlyusedmethods.LoginSteps;
-import io.qameta.allure.Attachment;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
@@ -34,12 +33,21 @@ public class EntryRemovalTest extends BaseTest {
         entriesPage.clickBackToOverviewButton();
 
         driverManager.removeTimeout();
+
+        entriesPage = new EntriesPage(driver);
+
+        entriesPage.waitForLastEntryCreatedOrUpdatedOn();
         String entryCreationDateAndTime = entriesPage.getDateLastEntryWasCreatedOrUpdatedOn();
+
         driverManager.setTimeout();
         entriesPage.tickLastEntryCheckbox();
         entriesPage.clickDeleteSelectedEntriesButton();
         entriesPage.confirmDeletionOfSelectedEntries();
+        entriesPage = new EntriesPage(driver);
+
         driverManager.removeTimeout();
+
+        entriesPage.waitForLastEntryCreatedOrUpdatedOn();
         String lastEntryCreationDateAndTime = entriesPage.getDateLastEntryWasCreatedOrUpdatedOn();
         driverManager.setTimeout();
         LOGGER.info("Check whether entry is deleted or not.");

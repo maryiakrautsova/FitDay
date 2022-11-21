@@ -11,7 +11,11 @@ public class ChromeDriverManager extends DriverManager {
     public void createDriver() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless", "--disable-notifications");
+        options.addArguments("--disable-notifications");
+        options.addArguments("--disable-extensions");
+        options.addArguments("--window-size=1920,1200");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--headless");
 
         options.setExperimentalOption("excludeSwitches",
                 Arrays.asList("disable-popup-blocking"));

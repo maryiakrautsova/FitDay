@@ -212,7 +212,7 @@ public class EntriesPage extends BasePage {
     }
 
     public void confirmDeletionOfSelectedEntries() {
-        LOGGER.debug("Attempt to confirm selected entry removal: %s");
+        LOGGER.debug("Attempt to confirm selected entry removal.");
         Alert alert = driver.switchTo().alert();
         alert.accept();
     }
@@ -223,14 +223,19 @@ public class EntriesPage extends BasePage {
         return entryReadyToBeFormatted.getText();
     }
 
-    public String getDateLastEntryWasCreatedOrUpdatedOn() {
+    public void waitForLastEntryCreatedOrUpdatedOn() {
         LOGGER.debug(String.format(
                 "Attempt get day - %s -, month - %s -, time - %s - the last entry was updated or created on.",
                 dayLastEntryWasCreatedOrUpdatedOn,
                 monthLastEntryWasCreatedOrUpdatedOn,
                 timeLastEntryWasCreatedOrUpdatedOn));
-        WebDriverWait wait = new WebDriverWait(driver, 50);
-        wait.until(ExpectedConditions.visibilityOf(timeLastEntryWasCreatedOrUpdatedOn));
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[contains(@class, 'day ng-binding')])[1]")));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[contains(@class, 'month ng-binding')])[1]")));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[contains(@class, 'time ng-binding')])[1]")));
+    }
+
+    public String getDateLastEntryWasCreatedOrUpdatedOn() {
         return dayLastEntryWasCreatedOrUpdatedOn.getText().trim().
                 concat(monthLastEntryWasCreatedOrUpdatedOn.getText().trim().
                         concat(timeLastEntryWasCreatedOrUpdatedOn.getText().trim()));
