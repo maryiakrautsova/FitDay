@@ -15,7 +15,6 @@ public class ImageTest extends BaseTest {
     @Test(priority = 3,
             description = "this test validates adding an image to existing entry test",
             retryAnalyzer = RetryAnalyzer.class)
-    @Attachment(value = "screenshot", type = "image/png")
     public void insertImageToExistingPostTest() {
         LoginSteps loginSteps = new LoginSteps();
         LOGGER.info(String.format("Page %s is initialized.", LoginSteps.class.getName()));

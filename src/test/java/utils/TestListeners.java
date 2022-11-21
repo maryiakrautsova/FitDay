@@ -1,7 +1,5 @@
 package utils;
 
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
@@ -18,6 +16,13 @@ public class TestListeners implements ITestListener {
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
         System.out.println("Test Passed");
+        Object currentClass = iTestResult.getInstance();
+        WebDriver driver = ((BaseTest) currentClass).driverManager.getDriver();
+        AllureService allureService = new AllureService();
+        allureService.getSystemName();
+        allureService.getBrowserType(((BaseTest) currentClass).driverManager);
+        allureService.getBrowserVersion(((BaseTest) currentClass).driverManager);
+
     }
 
     @Override

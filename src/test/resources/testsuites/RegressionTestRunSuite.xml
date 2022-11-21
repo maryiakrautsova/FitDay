@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Entries Modifications Tests.">
-    <test name="Entries Formatting.">
+<suite name="Regression Test Suite.">
+    <test name="Regression Tests.">
         <classes>
             <class name="tests.EntryCreationTest"></class>
             <class name="tests.EntryFormattingTest"></class>
             <class name="tests.EntryRemovalTest"></class>
             <class name="tests.ImageTest"></class>
             <class name="tests.TagsManagementTest"></class>
-        </classes>
-    </test> <!-- Test -->
-    <test name="Additional Actions with Entries.">
-        <classes>
-            <class name="tests.FilterEntriesTest"></class>
+            <class name="tests.UserRegistrationTest"></class>
+            <class name="tests.UserLoginTest"></class>
+            <class name="tests.UserLogoutTest"></class>
             <class name="tests.SearchForEntryTest"></class>
+            <class name="tests.FilterEntriesTest"></class>
         </classes>
-    </test> <!-- Test -->
+    </test>
 </suite>
