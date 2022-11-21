@@ -26,8 +26,7 @@ public class EntryCreationTest extends BaseTest {
         LOGGER.info(String.format("Page %s is initialized.", EntriesPage.class.getName()));
         LOGGER.info("Proceed with 'Create An Entry' button.");
         entriesPage.clickCreateAnEntryButton();
-        LOGGER.info("Wait for text is saved.");
-        entriesPage.waitForTextIsSavedIndicator();
+
         LOGGER.info("Input text for entry.");
         entriesPage.inputText();
         driverManager.removeTimeout();
