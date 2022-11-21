@@ -196,8 +196,8 @@ public class EntriesPage extends BasePage {
 
     public void waitForTextIsSavedIndicator() {
         LOGGER.debug(String.format("Wait for text input for an entry is saved: %s", savedIndicator));
-        WebDriverWait wait = new WebDriverWait(driver, 50);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='saved']")));
+        WebDriverWait wait = new WebDriverWait(driver, 60);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[text()='saved']")));
     }
 
     public void tickLastEntryCheckbox() {
