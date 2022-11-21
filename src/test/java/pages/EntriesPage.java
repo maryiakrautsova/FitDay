@@ -36,13 +36,16 @@ public class EntriesPage extends BasePage {
     @FindBy(xpath = "(//a[contains(@class, 'entry')])[1]//div[contains(@class, 'body')]")
     private WebElement textAreaOfTheExistingEntry;
 
+    @FindBy(xpath = "(//div[contains(@class, 'body ')])[1]")
+    private WebElement filteredEntryTextArea;
+
     @FindBy(xpath = "(//p)[1]")
     private WebElement entryReadyToBeFormatted;
 
     @FindBy(xpath = "(//div[contains(@class, 'body')])[1]")
     private WebElement lastEntry;
 
-    @FindBy(css = ".cke_savetoggle_text")
+    @FindBy(xpath = "//span[text()='saved']")
     private WebElement savedIndicator;
 
     @FindBy(xpath = "//div[text()='Log out']")
@@ -78,8 +81,8 @@ public class EntriesPage extends BasePage {
     @FindBy(xpath = "//td[text()='20']")
     private WebElement day20;
 
-    @FindBy(xpath = "(//td[text()='5'])[1]")
-    private WebElement day5;
+    @FindBy(xpath = "(//td[text()='10'])[1]")
+    private WebElement day10;
 
     @FindBy(xpath = "//button[contains(@ng-click, 'changeDate()')]")
     private WebElement changeDateOKButton;
@@ -124,7 +127,7 @@ public class EntriesPage extends BasePage {
     public boolean isCreateAnEntryButtonVisible() {
         LOGGER.debug(String.format("Check whether 'Create An Entry Button' - %s - is visible or not.",
                 createAnEntryButton));
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, 50);
         try {
             wait.until(ExpectedConditions.visibilityOf(createAnEntryButton));
         } catch (WebDriverException e) {
@@ -135,7 +138,7 @@ public class EntriesPage extends BasePage {
 
     public void clickCreateAnEntryButton() {
         LOGGER.debug(String.format("Attempt to click 'Create An Entry' button: %s.", createAnEntryButton));
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, 50);
         wait.until(ExpectedConditions.
                 visibilityOf(createAnEntryButton));
         createAnEntryButton.click();
@@ -143,7 +146,7 @@ public class EntriesPage extends BasePage {
 
     public void clickLogoutButton() {
         LOGGER.debug(String.format("Attempt to click 'Logout' button: %s.", logoutButton));
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, 50);
         wait.until(ExpectedConditions.
                 visibilityOf(logoutButton));
         logoutButton.click();
@@ -156,7 +159,7 @@ public class EntriesPage extends BasePage {
 
     public void waitAndCloseModalWindow() {
         LOGGER.debug(String.format("Wait and close modal window in case it pops up: %s", cancelModalWindowButton));
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 50);
 
         try {
             wait.until(ExpectedConditions.
@@ -179,15 +182,22 @@ public class EntriesPage extends BasePage {
 
     public String getTextOfTheExistingEntry() {
         LOGGER.debug(String.format("Attempt to get text of an existing entry: %s", textAreaOfTheExistingEntry));
-        WebDriverWait wait = new WebDriverWait(driver, 30);
-        wait.until(ExpectedConditions.visibilityOf(textAreaOfTheExistingEntry));
+        WebDriverWait wait = new WebDriverWait(driver, 50);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[contains(@class, 'entry')])[1]//div[contains(@class, 'body')]")));
         return textAreaOfTheExistingEntry.getText();
+    }
+
+    public String getTextOfFilteredEntry() {
+        LOGGER.debug(String.format("Attempt to get text of the filtered entry: %s", filteredEntryTextArea));
+        WebDriverWait wait = new WebDriverWait(driver, 50);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(@ng-class, 'searchParameterClass')]")));
+        return filteredEntryTextArea.getText();
     }
 
     public void waitForTextIsSavedIndicator() {
         LOGGER.debug(String.format("Wait for text input for an entry is saved: %s", savedIndicator));
-        WebDriverWait wait = new WebDriverWait(driver, 30);
-        wait.until(ExpectedConditions.textToBePresentInElement(savedIndicator, "saved"));
+        WebDriverWait wait = new WebDriverWait(driver, 50);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='saved']")));
     }
 
     public void tickLastEntryCheckbox() {
@@ -219,7 +229,7 @@ public class EntriesPage extends BasePage {
                 dayLastEntryWasCreatedOrUpdatedOn,
                 monthLastEntryWasCreatedOrUpdatedOn,
                 timeLastEntryWasCreatedOrUpdatedOn));
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, 50);
         wait.until(ExpectedConditions.visibilityOf(timeLastEntryWasCreatedOrUpdatedOn));
         return dayLastEntryWasCreatedOrUpdatedOn.getText().trim().
                 concat(monthLastEntryWasCreatedOrUpdatedOn.getText().trim().
@@ -251,9 +261,11 @@ public class EntriesPage extends BasePage {
         day20.click();
     }
 
-    public void clickToSelectDay5() {
-        LOGGER.debug(String.format("Attempt to click on 'Day 5': %s", day5));
-        day5.click();
+    public void clickToSelectDay10() {
+        LOGGER.debug(String.format("Attempt to click on 'Day 10': %s", day10));
+        WebDriverWait wait = new WebDriverWait(driver, 50);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//td[text()='10'])[1]")));
+        day10.click();
     }
 
     public void clickOKButton() {
@@ -263,14 +275,14 @@ public class EntriesPage extends BasePage {
 
     public void clickSelectDateForFilteringField() {
         LOGGER.debug(String.format("Attempt to select date for entries filtering: %s", selectDateForFilteringField));
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, 50);
         wait.until(ExpectedConditions.visibilityOf(selectDateForFilteringField));
         selectDateForFilteringField.click();
     }
 
     public void clickOnTheLastEntry() {
         LOGGER.debug(String.format("Attempt to click on the last entry: %s", lastEntry));
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, 50);
         wait.until(ExpectedConditions.visibilityOf(lastEntry));
         lastEntry.click();
     }
@@ -293,7 +305,7 @@ public class EntriesPage extends BasePage {
     public List<WebElement> getTagNamesAssignedToEntry() {
         LOGGER.debug(String.format("Attempt to get a list of all assigned to the last entry tag names: %s",
                 allAssignedTags));
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, 50);
         wait.until(ExpectedConditions.visibilityOfAllElements(allAssignedTags));
         return allAssignedTags;
     }
@@ -359,7 +371,7 @@ public class EntriesPage extends BasePage {
 
     public String getEntryBoldText() {
         LOGGER.debug(String.format("Attempt to get bold text of the entry: %s", textInBold));
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, 50);
         wait.until(ExpectedConditions.visibilityOf(textInBold));
         return textInBold.getText();
     }

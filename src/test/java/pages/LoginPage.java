@@ -62,7 +62,7 @@ public class LoginPage extends BasePage {
 
     public void waitAndCloseModalWindow() {
         LOGGER.debug(String.format("Wait and close modal window in case it pops up: %s", cancelModalWindowButton));
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 30);
 
         try {
             wait.until(ExpectedConditions.

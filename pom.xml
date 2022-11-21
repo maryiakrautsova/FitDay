@@ -19,7 +19,7 @@
         <allure.version>2.19.0</allure.version>
         <log4j.version>1.2.17</log4j.version>
         <aspectj.version>1.9.7</aspectj.version>
-        <suiteXmlFile>src/test/resources/testsuites/UserLoginLogoutTestRunSuite.xml</suiteXmlFile>
+        <suiteXmlFile>src/test/resources/testsuites/RegressionTestRunSuite.xml</suiteXmlFile>
     </properties>
 
     <dependencies>

@@ -12,7 +12,6 @@ public class TagsManagementTest extends BaseTest {
     private static final Logger LOGGER = LogManager.getLogger(TagsManagementTest.class.getName());
 
     @Test(priority = 3, description = "this test validates a tag can be added to an entry test")
-    @Attachment(value = "screenshot", type = "image/png")
     public void tagCreationAndAssigmentTest() {
         LoginSteps loginSteps = new LoginSteps();
         LOGGER.info(String.format("Page %s is initialized.", LoginSteps.class.getName()));

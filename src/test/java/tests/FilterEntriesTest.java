@@ -12,7 +12,6 @@ public class FilterEntriesTest extends BaseTest {
     private static final Logger LOGGER = LogManager.getLogger(FilterEntriesTest.class.getName());
 
     @Test(priority = 3, description = "this test validates entries filtering test")
-    @Attachment(value = "screenshot", type = "image/png")
     public void existingEntriesCanBeFilteredByDateTest() {
         LoginSteps loginSteps = new LoginSteps();
         LOGGER.info(String.format("Page %s is initialized.", LoginSteps.class.getName()));
@@ -23,14 +22,7 @@ public class FilterEntriesTest extends BaseTest {
         LOGGER.info(String.format("Page %s is initialized.", EntriesPage.class.getName()));
         LOGGER.info("Proceed with 'Create An Entry' button.");
         entriesPage.clickCreateAnEntryButton();
-        LOGGER.info("Wait for text is saved.");
-        entriesPage.waitForTextIsSavedIndicator();
-        LOGGER.info("Input text for entry.");
-        entriesPage.inputText();
-        driverManager.removeTimeout();
-        LOGGER.info("Wait for text is saved.");
-        entriesPage.waitForTextIsSavedIndicator();
-        driverManager.setTimeout();
+
         LOGGER.info("Proceed with 'Change Date Or Time' button.");
         entriesPage.clickChangeDateOrTimeButton();
         LOGGER.info("Attempt to make date options to be selected visible.");
@@ -40,23 +32,33 @@ public class FilterEntriesTest extends BaseTest {
         LOGGER.info("Proceed with 'OK' button.");
         entriesPage.clickOKButton();
         LOGGER.info("Proceed with 'Back to Overview' button.");
+
+        LOGGER.info("Input text for entry.");
+        entriesPage.inputText();
+        driverManager.removeTimeout();
+        LOGGER.info("Wait for text is saved.");
+        entriesPage.waitForTextIsSavedIndicator();
+        driverManager.setTimeout();
+
         entriesPage.clickBackToOverviewButton();
 
         LOGGER.info("Proceed with 'Create An Entry' button.");
         entriesPage.clickCreateAnEntryButton();
-        entriesPage.waitForTextIsSavedIndicator();
+
         LOGGER.info("Input text for entry.");
         entriesPage.inputText();
         driverManager.removeTimeout();
-        String entryDay5Text = entriesPage.getText().trim();
         entriesPage.waitForTextIsSavedIndicator();
+
+
         driverManager.setTimeout();
+        String entryDay10Text = entriesPage.getText().trim();
         LOGGER.info("Proceed with 'Change Date Or Time' button.");
         entriesPage.clickChangeDateOrTimeButton();
         LOGGER.info("Attempt to make date options to be selected visible.");
         entriesPage.clickToSeeDateOptionsToSelect();
-        LOGGER.info("Attempt to select 'day 5'.");
-        entriesPage.clickToSelectDay5();
+        LOGGER.info("Attempt to select 'day 10'.");
+        entriesPage.clickToSelectDay10();
         LOGGER.info("Proceed with 'OK' button.");
         entriesPage.clickOKButton();
         LOGGER.info("Proceed with 'Back to Overview' button.");
@@ -65,14 +67,14 @@ public class FilterEntriesTest extends BaseTest {
         driverManager.removeTimeout();
         LOGGER.info("Attempt to get date options for filtering field to select.");
         entriesPage.clickSelectDateForFilteringField();
-        driverManager.setTimeout();
-        LOGGER.info("Attempt to select 'day 5'.");
-        entriesPage.clickToSelectDay5();
-        driverManager.removeTimeout();
-        String filteredEntryText = entriesPage.getTextOfTheExistingEntry();
+
+        LOGGER.info("Attempt to select 'day 10'.");
+        entriesPage.clickToSelectDay10();
+
+        String filteredEntryText = entriesPage.getTextOfFilteredEntry();
         driverManager.setTimeout();
 
-        LOGGER.info("Attempt to select 'day 5'.");
-        Assert.assertEquals(filteredEntryText, entryDay5Text, "Entry is filtered incorrectly.");
+        LOGGER.info("Attempt to select 'day 10'.");
+        Assert.assertEquals(filteredEntryText, entryDay10Text, "Entry is filtered incorrectly.");
     }
 }
