@@ -263,14 +263,16 @@ public class EntriesPage extends BasePage {
 
     public void clickToSelectDay20() {
         LOGGER.debug(String.format("Attempt to click on 'Day 20': %s", day20));
-        day20.click();
+        WebDriverWait wait = new WebDriverWait(driver, 50);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//td[text()='20']")))
+                .click();
     }
 
     public void clickToSelectDay10() {
         LOGGER.debug(String.format("Attempt to click on 'Day 10': %s", day10));
         WebDriverWait wait = new WebDriverWait(driver, 50);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//td[text()='10'])[1]")));
-        day10.click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//td[text()='10'])[1]")))
+                .click();
     }
 
     public void clickOKButton() {
