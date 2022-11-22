@@ -35,7 +35,7 @@ public class EntryFormattingTest extends BaseTest {
 
         LOGGER.info(String.format("Page %s is initialized.", EntriesPage.class.getName()));
         LOGGER.info("Proceed with getting text of the last entry.");
-        String textEntry = entriesPage.getTextOfLastEntry();
+        String textEntry = entriesPage.getTextOfLastEntry().trim();
         driverManager.removeTimeout();
         LOGGER.info("Attempt to click on the last entry.");
         entriesPage.clickOnTheLastEntry();
