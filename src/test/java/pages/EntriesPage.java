@@ -97,7 +97,7 @@ public class EntriesPage extends BasePage {
     private WebElement createTagOKButton;
 
     @FindBy(css = ".assigned-tags span a")
-    private List <WebElement> allAssignedTags;
+    private List<WebElement> allAssignedTags;
 
     @FindBy(xpath = "(//a[contains(@title, 'Image')])[1]")
     private WebElement imageButton;
@@ -288,12 +288,16 @@ public class EntriesPage extends BasePage {
     public void clickOnTheLastEntry() {
         LOGGER.debug(String.format("Attempt to click on the last entry: %s", lastEntry));
         WebDriverWait wait = new WebDriverWait(driver, 50);
-        wait.until(ExpectedConditions.visibilityOf(lastEntry));
-        lastEntry.click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(
+                "(//div[contains(@class, 'body')])[1]")))
+                .click();
     }
 
     public String getTextOfLastEntry() {
         LOGGER.debug(String.format("Attempt to get text of the last entry: %s", lastEntry));
+        WebDriverWait wait = new WebDriverWait(driver, 50);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(
+                "(//div[contains(@class, 'body')])[1]")));
         return lastEntry.getText();
     }
 
@@ -318,8 +322,8 @@ public class EntriesPage extends BasePage {
     public boolean isTagNameAssignedToEntry() {
         LOGGER.debug(String.format("Check whether created tag name (%s) is assigned to the entry or not.", tag));
         List<WebElement> tags = getTagNamesAssignedToEntry();
-        for (int i = 0; i < tags.size(); i++){
-            if (tags.get(i).getText().equals(tag)){
+        for (int i = 0; i < tags.size(); i++) {
+            if (tags.get(i).getText().equals(tag)) {
                 return true;
             }
         }

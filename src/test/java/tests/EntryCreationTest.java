@@ -1,7 +1,6 @@
 package tests;
 
 import frequentlyusedmethods.LoginSteps;
-import io.qameta.allure.Attachment;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
@@ -27,17 +26,22 @@ public class EntryCreationTest extends BaseTest {
         LOGGER.info("Proceed with 'Create An Entry' button.");
         entriesPage.clickCreateAnEntryButton();
 
+        LOGGER.info("Wait for text is saved.");
+        entriesPage.waitForTextIsSavedIndicator();
         LOGGER.info("Input text for entry.");
         entriesPage.inputText();
+        String expectedTextEntry = entriesPage.getText().trim();
         driverManager.removeTimeout();
         LOGGER.info("Wait for text is saved.");
         entriesPage.waitForTextIsSavedIndicator();
+
+        entriesPage = new EntriesPage(driver);
         String actualInputText = entriesPage.getTextOfEntryReadyToBeFormatted().trim();
         driverManager.setTimeout();
         LOGGER.info("Check entry is created and saved.");
         Assert.assertEquals(
                 actualInputText,
-                entriesPage.getText().trim(),
-                "Entry hasn't been created correctly.");
+                expectedTextEntry,
+                "Entry is created incorrectly.");
     }
 }
