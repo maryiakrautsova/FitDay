@@ -45,13 +45,13 @@ public class LoginPage extends BasePage {
 
     public void fillInUserInputField() {
         String v = System.getenv("MONKKEE_USERNAME");
-        LOGGER.debug(String.format("Attempt to send Username: %s.", v));
+        LOGGER.debug(String.format("Attempt to send Username."));
         userInput.sendKeys(v);
     }
 
     public void fillInPasswordInputField() {
         String v = System.getenv("MONKKEE_PASSWORD");
-        LOGGER.debug(String.format("Attempt to send Password: %s.", v));
+        LOGGER.debug(String.format("Attempt to send Password."));
         passwordInput.sendKeys(v);
     }
 

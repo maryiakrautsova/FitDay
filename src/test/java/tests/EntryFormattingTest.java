@@ -1,7 +1,6 @@
 package tests;
 
 import frequentlyusedmethods.LoginSteps;
-import io.qameta.allure.Attachment;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
@@ -19,6 +18,21 @@ public class EntryFormattingTest extends BaseTest {
         loginSteps.userLogin(driverManager);
 
         EntriesPage entriesPage = new EntriesPage(driver);
+        LOGGER.info(String.format("Page %s is initialized.", EntriesPage.class.getName()));
+        LOGGER.info("Proceed with 'Create An Entry' button.");
+        entriesPage.clickCreateAnEntryButton();
+
+        LOGGER.info("Wait for text is saved.");
+        entriesPage.waitForTextIsSavedIndicator();
+        LOGGER.info("Input text for entry.");
+        entriesPage.inputText();
+        driverManager.removeTimeout();
+        LOGGER.info("Wait for text is saved.");
+        entriesPage.waitForTextIsSavedIndicator();
+
+        LOGGER.debug("Proceed with clicking 'Back To Overview' button.");
+        entriesPage.clickBackToOverviewButton();
+
         LOGGER.info(String.format("Page %s is initialized.", EntriesPage.class.getName()));
         LOGGER.info("Proceed with getting text of the last entry.");
         String textEntry = entriesPage.getTextOfLastEntry();
