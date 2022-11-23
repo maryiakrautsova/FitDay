@@ -22,15 +22,18 @@ public class FilterEntriesTest extends BaseTest {
         LOGGER.info("Proceed with 'Create An Entry' button.");
         entriesPage.clickCreateAnEntryButton();
 
-        LOGGER.info("Proceed with 'Change Date Or Time' button.");
+
         entriesPage.clickChangeDateOrTimeButton();
-        LOGGER.info("Attempt to make date options to be selected visible.");
         entriesPage.clickToSeeDateOptionsToSelect();
-        LOGGER.info("Attempt to select 'day 20'.");
-        entriesPage.clickToSelectDay20();
-        LOGGER.info("Proceed with 'OK' button.");
+        entriesPage.clickToSelectDay10();
         entriesPage.clickOKButton();
-        LOGGER.info("Proceed with 'Back to Overview' button.");
+
+        driverManager.removeTimeout();
+        LOGGER.info("Wait for text is saved.");
+        entriesPage.waitForTextIsSavedIndicator();
+        driverManager.setTimeout();
+
+        entriesPage.clickOnEntryReadyToBeFormatted();
 
         LOGGER.info("Input text for entry.");
         entriesPage.inputText();
@@ -39,27 +42,6 @@ public class FilterEntriesTest extends BaseTest {
         entriesPage.waitForTextIsSavedIndicator();
         driverManager.setTimeout();
 
-        entriesPage.clickBackToOverviewButton();
-
-        LOGGER.info("Proceed with 'Create An Entry' button.");
-        entriesPage.clickCreateAnEntryButton();
-
-        LOGGER.info("Input text for entry.");
-        entriesPage.inputText();
-        driverManager.removeTimeout();
-        entriesPage.waitForTextIsSavedIndicator();
-
-
-        driverManager.setTimeout();
-        String entryDay10Text = entriesPage.getText().trim();
-        LOGGER.info("Proceed with 'Change Date Or Time' button.");
-        entriesPage.clickChangeDateOrTimeButton();
-        LOGGER.info("Attempt to make date options to be selected visible.");
-        entriesPage.clickToSeeDateOptionsToSelect();
-        LOGGER.info("Attempt to select 'day 10'.");
-        entriesPage.clickToSelectDay10();
-        LOGGER.info("Proceed with 'OK' button.");
-        entriesPage.clickOKButton();
         LOGGER.info("Proceed with 'Back to Overview' button.");
         entriesPage.clickBackToOverviewButton();
 
@@ -70,10 +52,8 @@ public class FilterEntriesTest extends BaseTest {
         LOGGER.info("Attempt to select 'day 10'.");
         entriesPage.clickToSelectDay10();
 
-        String filteredEntryText = entriesPage.getTextOfFilteredEntry();
-        driverManager.setTimeout();
-
-        LOGGER.info("Attempt to select 'day 10'.");
-        Assert.assertEquals(filteredEntryText, entryDay10Text, "Entry is filtered incorrectly.");
+        LOGGER.info("Check entry is filtered correctly.");
+        Assert.assertTrue(entriesPage.areAllDaysOfFilteredEntriesEqualTo10(), "Check filtered entries. " +
+                "Not all days of filtered entries are equal to 10.");
     }
 }
