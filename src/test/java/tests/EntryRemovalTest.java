@@ -21,6 +21,9 @@ public class EntryRemovalTest extends BaseTest {
         LOGGER.info(String.format("Page %s is initialized.", EntriesPage.class.getName()));
         LOGGER.info("Proceed with 'Create An Entry' button.");
         entriesPage.clickCreateAnEntryButton();
+
+        entriesPage = new EntriesPage(driver);
+
         LOGGER.info("Wait for text is saved.");
         entriesPage.waitForTextIsSavedIndicator();
         driverManager.setTimeout();
