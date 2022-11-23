@@ -235,10 +235,13 @@ public class EntriesPage extends BasePage {
                 dayLastEntryWasCreatedOrUpdatedOn,
                 monthLastEntryWasCreatedOrUpdatedOn,
                 timeLastEntryWasCreatedOrUpdatedOn));
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[contains(@class, 'day ng-binding')])[1]")));
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[contains(@class, 'month ng-binding')])[1]")));
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[contains(@class, 'time ng-binding')])[1]")));
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.xpath("(//div[contains(@class, 'day ng-binding')])[1]")));
+        wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.xpath("(//div[contains(@class, 'month ng-binding')])[1]")));
+        wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.xpath("(//div[contains(@class, 'time ng-binding')])[1]")));
     }
 
     public String getDateLastEntryWasCreatedOrUpdatedOn() {
