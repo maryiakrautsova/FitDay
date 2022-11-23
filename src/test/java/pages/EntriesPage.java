@@ -78,8 +78,8 @@ public class EntriesPage extends BasePage {
     @FindBy(id = "date")
     private WebElement dateOptions;
 
-    @FindBy(xpath = "//td[text()='20']")
-    private WebElement day20;
+    @FindBy(css = ".entry-container .calendar-date :nth-child(1)")
+    private List<WebElement> daysOfAllFilteredEntries;
 
     @FindBy(xpath = "(//td[text()='10'])[1]")
     private WebElement day10;
@@ -223,6 +223,12 @@ public class EntriesPage extends BasePage {
         return entryReadyToBeFormatted.getText();
     }
 
+    public void clickOnEntryReadyToBeFormatted() {
+        LOGGER.debug(String.format("Attempt to input text entry into the empty field: %s",
+                entryReadyToBeFormatted));
+        entryReadyToBeFormatted.click();
+    }
+
     public void waitForLastEntryCreatedOrUpdatedOn() {
         LOGGER.debug(String.format(
                 "Attempt get day - %s -, month - %s -, time - %s - the last entry was updated or created on.",
@@ -261,17 +267,11 @@ public class EntriesPage extends BasePage {
         dateOptions.click();
     }
 
-    public void clickToSelectDay20() {
-        LOGGER.debug(String.format("Attempt to click on 'Day 20': %s", day20));
-        WebDriverWait wait = new WebDriverWait(driver, 50);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//td[text()='20']")))
-                .click();
-    }
 
     public void clickToSelectDay10() {
         LOGGER.debug(String.format("Attempt to click on 'Day 10': %s", day10));
         WebDriverWait wait = new WebDriverWait(driver, 50);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//td[text()='10'])[1]")))
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//td[text()='10'])[1]")))
                 .click();
     }
 
@@ -291,7 +291,7 @@ public class EntriesPage extends BasePage {
         LOGGER.debug(String.format("Attempt to click on the last entry: %s", lastEntry));
         WebDriverWait wait = new WebDriverWait(driver, 50);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(
-                "(//div[contains(@class, 'body')])[1]")))
+                        "(//div[contains(@class, 'body')])[1]")))
                 .click();
     }
 
@@ -326,6 +326,26 @@ public class EntriesPage extends BasePage {
         List<WebElement> tags = getTagNamesAssignedToEntry();
         for (int i = 0; i < tags.size(); i++) {
             if (tags.get(i).getText().equals(tag)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public List<WebElement> getDaysOfAllFilteredEntries() {
+        LOGGER.debug(String.format("Attempt to get a list of days of all filtered entries: %s",
+                daysOfAllFilteredEntries));
+        WebDriverWait wait = new WebDriverWait(driver, 50);
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
+                By.cssSelector(".entry-container .calendar-date :nth-child(1)")));
+        return daysOfAllFilteredEntries;
+    }
+
+    public boolean areAllDaysOfFilteredEntriesEqualTo10() {
+        LOGGER.debug(String.format("Check whether filtered entries days are equal to 10."));
+        List<WebElement> days = getDaysOfAllFilteredEntries();
+        for (int i = 0; i < days.size(); i++) {
+            if (days.get(i).getText().trim().equals("10")) {
                 return true;
             }
         }
