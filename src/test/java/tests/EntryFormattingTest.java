@@ -50,7 +50,7 @@ public class EntryFormattingTest extends BaseTest {
         driverManager.removeTimeout();
         entriesPage.waitForTextIsSavedIndicator();
 
-        String actualInputText = entriesPage.getEntryBoldText();
+        String actualInputText = entriesPage.getEntryBoldText().trim();
         driverManager.setTimeout();
         LOGGER.info("Check whether text is bold or not.");
         Assert.assertEquals(actualInputText,
