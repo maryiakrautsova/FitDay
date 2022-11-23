@@ -271,6 +271,8 @@ public class EntriesPage extends BasePage {
     public void clickToSelectDay10() {
         LOGGER.debug(String.format("Attempt to click on 'Day 10': %s", day10));
         WebDriverWait wait = new WebDriverWait(driver, 50);
+        wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.xpath("(//table[contains(@class,  table-condensed)])[1]")));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//td[text()='10'])[1]")))
                 .click();
     }
@@ -279,7 +281,7 @@ public class EntriesPage extends BasePage {
         LOGGER.debug(String.format("Attempt to click on 'OK' button in change date area: %s", changeDateOKButton));
         WebDriverWait wait = new WebDriverWait(driver, 50);
         wait.until(ExpectedConditions.presenceOfElementLocated(
-                By.xpath("//button[contains(@ng-click, 'changeDate()')]")))
+                        By.xpath("//button[contains(@ng-click, 'changeDate()')]")))
                 .click();
     }
 
