@@ -23,6 +23,7 @@ public class FilterEntriesTest extends BaseTest {
         entriesPage.clickCreateAnEntryButton();
 
 
+        entriesPage = new EntriesPage(driver);
         entriesPage.clickChangeDateOrTimeButton();
         entriesPage.clickToSeeDateOptionsToSelect();
         entriesPage.clickToSelectDay10();

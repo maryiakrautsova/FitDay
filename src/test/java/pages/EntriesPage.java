@@ -277,7 +277,10 @@ public class EntriesPage extends BasePage {
 
     public void clickOKButton() {
         LOGGER.debug(String.format("Attempt to click on 'OK' button in change date area: %s", changeDateOKButton));
-        changeDateOKButton.click();
+        WebDriverWait wait = new WebDriverWait(driver, 50);
+        wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.xpath("//button[contains(@ng-click, 'changeDate()')]")))
+                .click();
     }
 
     public void clickSelectDateForFilteringField() {
