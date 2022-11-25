@@ -64,14 +64,12 @@ Test cases can be found also [here](https://docs.google.com/spreadsheets/d/12-o_
 4. In case a modal window is appeared - close it by clicking 'Cancel'. - ***Expected:*** User is redirected to https://my.monkkee.com/#/entries. Active 'Create an entry' button is present on the toolbar.
 5.	Click on 'Create an entry' button. - ***Expected:***	A modal window with empty text area for input is present.
 6.	Input random text (example: 'There's a time for all things.'). - ***Expected:***	Text is input. Button with emoji = diskette is marked as 'saved' and is inactive.
-7.	Click on 'Change date/time' button. Make sure the following date is set: current year and month and day = more than current day. Click on 'OK' button next to the date. - ***Expected:***	Date: current year and month and day = set in step 6.
-8.	Click on 'Back to overwiev' button. - ***Expected:***	User is redirected to [Entries Page](https://my.monkkee.com/#/entries). Post with text from step 5' is present.
-9.	Click on 'Create an entry' button. - ***Expected:***	A modal window with empty text area for input is present.
-10.	Input random text (example: 'To be, or not to be, that is the question.'). - ***Expected:***	Text is input. Button with emoji = diskette is marked as 'saved' and is inactive.
-11.	Click on 'Change date/time' button. Set the following date: current year and month and day = 5. Click on 'OK' button next to the date. - ***Expected:***	Date: current year and month and day = 5 is selected.
-12.	Click on 'Back to overwiev' button. - ***Expected:***	User is redirected to [Entries Page](https://my.monkkee.com/#/entries). Post with text message from step 10 is present. 'Calendar' field is present.
-13.	Navigate to 'Calendar' field and click on 'Select date' text. - ***Expected:***	Calendar with current month displayed is appeared.
-14.	Select the following date: current year and month and day = 5. - ***Expected:***	Only post with text from step 10 is present.
+7.	Click on 'Change date/time' button. Make sure the following date is set: current year and month and day = 10. Click on 'OK' button next to the date. - ***Expected:***	Date: current year and month and day = 10.
+8.	Click on the text area for text input. - ***Expected:***	Text is ready to be input.
+9.	Input random text (example: 'To be, or not to be, that is the question.'). - ***Expected:***	Text is input. Button with emoji = diskette is marked as 'saved' and is inactive.
+10.	Click on 'Back to overwiev' button. - ***Expected:***	User is redirected to [Entries Page](https://my.monkkee.com/#/entries). Post with text message from step 9 is present. 'Calendar' field is present.
+11.	Navigate to 'Calendar' field and click on 'Select date' text. - ***Expected:***	Calendar with current month displayed is appeared.
+12.	Select the following date: current year and month and day = 10. - ***Expected:***	Only posts with date = 10 current year and month and day = 10 are present.
 
 ## :yellow_circle: *TC-8.	Tags can be managed.*
 1.	Follow the link: [Login Page](https://my.monkkee.com/#/) - ***Expected:***	Login page is opened. Login form is visible. 'User' and 'Password' fields, 'Login' button are present.
